@@ -5,9 +5,7 @@
 	import Github from 'svelte-material-icons/Github.svelte';
 	import Linkedin from 'svelte-material-icons/Linkedin.svelte';
 	import Instagram from 'svelte-material-icons/Instagram.svelte';
-	import Android from 'svelte-material-icons/Android.svelte';
 
-	let href = 'https://github.com/mirhasalh/mirhasalhxyz';
 	let size = '1.5rem';
 	let viewBox = '0 0 24 24';
 
@@ -19,23 +17,20 @@
 
 <Drawer>
 	{#if $drawerStore.id === 'main-drawer'}
-		<a href="https://flutter.mirhasalh.xyz/#/" class="btn variant-filled m-4" data-sveltekit-preload-data="hover" target="_blank">
-			<Android {size} {viewBox} />
-		</a>
 		<br>
-		<a {href} class="btn variant-filled m-4" data-sveltekit-preload-data="hover" target="_blank">
-			<Github {size} {viewBox} />
-		</a>
+		<button class="btn variant-filled mx-4 my-2" data-sveltekit-preload-data="hover" on:click={() => window.open('https://github.com/mirhasalh', '_blank')}>
+			<span><Github {size} {viewBox} /></span>
+		</button>
+		<br>	
+		<button class="btn variant-filled mx-4 my-2" data-sveltekit-preload-data="hover" on:click={() => window.open('https://www.instagram.com/irhasdev/', '_blank')}>
+			<span><Instagram {size} {viewBox} /></span>
+		</button>
 		<br>
-		<a href="https://www.instagram.com/irhasdev/" class="btn variant-filled m-4" data-sveltekit-preload-data="hover" target="_blank">
-			<Instagram {size} {viewBox} />
-		</a>
-		<br>
-		<a href="https://www.linkedin.com/in/irhas-a-914681230" class="btn variant-filled m-4" data-sveltekit-preload-data="hover" target="_blank">
-			<Linkedin {size} {viewBox} />
-		</a>
+		<button class="btn variant-filled mx-4 my-2" data-sveltekit-preload-data="hover" on:click={() => window.open('https://www.linkedin.com/in/irhas-a-914681230', '_blank')}>
+			<span><Linkedin {size} {viewBox} /></span>
+		</button>
 	{:else}
-		<div>...</div>
+		<div/>
 	{/if}
 </Drawer>
 <AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end">
@@ -48,9 +43,9 @@
 			<Menu {size} {viewBox} />
 		</button>
 	</svelte:fragment>
-	<a {href} target="_blank" type="button" class="btn-icon bg-initial">
-		<Github {size} {viewBox} />
-	</a>
+	<button class="btn-icon bg-initial" data-sveltekit-preload-data="hover" on:click={() => window.open('https://github.com/mirhasalh/mirhasalhxyz', '_blank')}>
+		<span><Github {size} {viewBox} /></span>
+	</button>
 	<svelte:fragment slot="trail">
 		<LightSwitch />
 	</svelte:fragment>
