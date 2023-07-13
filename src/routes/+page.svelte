@@ -18,6 +18,10 @@
 <Drawer>
 	{#if $drawerStore.id === 'main-drawer'}
 		<br>
+		<button class="btn variant-filled mx-4 my-2" data-sveltekit-preload-data="hover" on:click={() => window.open('https://mirhasalh.xyz/', '_blank')}>
+			<span class="material-symbols-outlined">flutter</span>
+		</button>
+		<br>
 		<button class="btn variant-filled mx-4 my-2" data-sveltekit-preload-data="hover" on:click={() => window.open('https://github.com/mirhasalh', '_blank')}>
 			<span><Github {size} {viewBox} /></span>
 		</button>
@@ -33,6 +37,7 @@
 		<div/>
 	{/if}
 </Drawer>
+
 <AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end">
 	<svelte:fragment slot="lead">
 		<button
@@ -53,6 +58,7 @@
 
 <div class="container h-full mx-auto flex justify-center items-center">
 	<div class="space-y-5">
+		<div class="variant-filled" style="width: 50px; height: 50px;">a</div>
 		<h1 class="h1">Let's get cracking bones!</h1>
 		<p>Start by exploring:</p>
 		<ul>
@@ -62,3 +68,17 @@
 		</ul>
 	</div>
 </div>
+
+<svelte:head>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</svelte:head>
+
+<style>
+	.material-symbols-outlined {
+	  font-variation-settings:
+	  'FILL' 0,
+	  'wght' 400,
+	  'GRAD' 0,
+	  'opsz' 48
+	}
+</style>
