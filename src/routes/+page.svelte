@@ -5,10 +5,15 @@
 	import Github from 'svelte-material-icons/Github.svelte';
 	import Linkedin from 'svelte-material-icons/Linkedin.svelte';
 	import Instagram from 'svelte-material-icons/Instagram.svelte';
+	import { marked } from 'marked';
 
 	let size = '1.5rem';
 	let viewBox = '0 0 24 24';
 	let innerWidth = 0;
+	let overviewDarkMode = '![](https://raw.githubusercontent.com/mirhasalh/github-stats/master/generated/overview.svg#gh-dark-mode-only)';
+	let overviewLightMode = '![](https://raw.githubusercontent.com/mirhasalh/github-stats/master/generated/overview.svg#gh-light-mode-only)';
+	let languagesDarkMode = '![](https://raw.githubusercontent.com/mirhasalh/github-stats/master/generated/languages.svg#gh-dark-mode-only)';
+	let languagesLightMode = '![](https://raw.githubusercontent.com/mirhasalh/github-stats/master/generated/languages.svg#gh-light-mode-only)';
 
 	const drawerSettings: DrawerSettings = {
 		id: 'main-drawer',
@@ -68,7 +73,7 @@
 		<span>Linkedin</span>
 	</AppRailAnchor>
 	<svelte:fragment slot="trail">
-		<AppRailAnchor href="/" title="Light Switch">
+		<AppRailAnchor>
 			<svelte:fragment slot="lead"><LightSwitch /></svelte:fragment>
 		</AppRailAnchor>
 	</svelte:fragment>
@@ -97,13 +102,24 @@
 
 <div class="container" style={`${innerWidth > 640 ? "padding-left: 88px;" : ""}`}>
 	<div class="p-8 space-y-5">
-		<h1 class="h1">Let's get cracking bones!</h1>
-		<p>Start by exploring:</p>
-		<ul>
-			<li><code class="code">/src/routes/+layout.svelte</code> - barebones layout, the CSS import order is critical!</li>
-			<li><code class="code">/src/app.postcss</code> - minimal css to make the page full screen, may not be relevant for your project</li>
-			<li><code class="code">/src/routes/+page.svelte</code> - this page, you can replace the contents</li>
-		</ul>
+		<h1 class="h1">GitHub stats visualization</h1>
+		<p>Here's my GitHub stats:</p>
+		<table>
+			<tbody>
+			  <tr class="collapse dark:visible">
+				<td>{@html marked(overviewDarkMode)}</td>
+			  </tr>
+			  <tr class="visible dark:collapse">
+				<td>{@html marked(overviewLightMode)}</td>
+			  </tr>
+			  <tr class="collapse dark:visible">
+				<td>{@html marked(languagesDarkMode)}</td>
+			  </tr>
+			  <tr class="visible dark:collapse">
+				<td>{@html marked(languagesLightMode)}</td>
+			  </tr>
+			</tbody>
+		  </table>
 	</div>
 </div>
 
