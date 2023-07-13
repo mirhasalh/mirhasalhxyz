@@ -22,4 +22,3 @@ $ pnpm run dev
 ```
 
 View the Svelte [online documentation](https://svelte.dev/docs), which offers tutorials, samples, and guidance on Svelte app development.
-for your target environment.
