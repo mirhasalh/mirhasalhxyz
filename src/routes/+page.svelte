@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { AppBar, LightSwitch, Drawer, drawerStore } from '@skeletonlabs/skeleton';
+	import { AppBar, LightSwitch, Drawer, drawerStore, AppRail, AppRailAnchor } from '@skeletonlabs/skeleton';
 	import type { DrawerSettings } from '@skeletonlabs/skeleton';
 	import Menu from 'svelte-material-icons/Menu.svelte';
 	import Github from 'svelte-material-icons/Github.svelte';
@@ -8,6 +8,7 @@
 
 	let size = '1.5rem';
 	let viewBox = '0 0 24 24';
+	let innerWidth = 0;
 
 	const drawerSettings: DrawerSettings = {
 		id: 'main-drawer',
@@ -15,10 +16,12 @@
 	};
 </script>
 
+<svelte:window bind:innerWidth />
+
 <Drawer>
 	{#if $drawerStore.id === 'main-drawer'}
 		<br>
-		<button class="btn variant-filled mx-4 my-2" data-sveltekit-preload-data="hover" on:click={() => window.open('https://mirhasalh.xyz/', '_blank')}>
+		<button class="btn variant-filled mx-4 my-2" data-sveltekit-preload-data="hover" on:click={() => window.open('https://flutter.mirhasalh.xyz/', '_blank')}>
 			<span class="material-symbols-outlined">flutter</span>
 		</button>
 		<br>
@@ -38,6 +41,41 @@
 	{/if}
 </Drawer>
 
+{#if innerWidth > 640}
+	<AppRail class="fixed z-10">
+	<AppRailAnchor href="https://flutter.mirhasalh.xyz/" target="_blank" title="Flutter">
+		<svelte:fragment slot="lead">
+			<span class="material-symbols-outlined">flutter</span>
+		</svelte:fragment>
+		<span>Flutter</span>
+	</AppRailAnchor>
+	<AppRailAnchor href="https://github.com/mirhasalh" target="_blank" title="GitHub">
+		<svelte:fragment slot="lead">
+			<Github {size} {viewBox} />
+		</svelte:fragment>
+		<span>GitHub</span>
+	</AppRailAnchor>
+	<AppRailAnchor href="https://www.instagram.com/irhasdev/" target="_blank" title="Instagram">
+		<svelte:fragment slot="lead">
+			<span><Instagram {size} {viewBox} /></span>
+		</svelte:fragment>
+		<span>Instagram</span>
+	</AppRailAnchor>
+	<AppRailAnchor href="https://www.linkedin.com/in/irhas-a-914681230" target="_blank" title="Linkedin">
+		<svelte:fragment slot="lead">
+			<span><Linkedin {size} {viewBox} /></span>
+		</svelte:fragment>
+		<span>Linkedin</span>
+	</AppRailAnchor>
+	<svelte:fragment slot="trail">
+		<AppRailAnchor href="/" title="Light Switch">
+			<svelte:fragment slot="lead"><LightSwitch /></svelte:fragment>
+		</AppRailAnchor>
+	</svelte:fragment>
+	</AppRail>
+{/if}
+
+{#if innerWidth <= 640}
 <AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end">
 	<svelte:fragment slot="lead">
 		<button
@@ -55,10 +93,10 @@
 		<LightSwitch />
 	</svelte:fragment>
 </AppBar>
+{/if}
 
-<div class="container h-full mx-auto flex justify-center items-center">
-	<div class="space-y-5">
-		<div class="variant-filled" style="width: 50px; height: 50px;">a</div>
+<div class="container" style={`${innerWidth > 640 ? "padding-left: 88px;" : ""}`}>
+	<div class="p-8 space-y-5">
 		<h1 class="h1">Let's get cracking bones!</h1>
 		<p>Start by exploring:</p>
 		<ul>
