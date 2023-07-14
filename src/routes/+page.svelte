@@ -103,7 +103,7 @@
 <div class="container" style={`${innerWidth > 640 ? "padding-left: 88px;" : ""}`}>
 	<div class="p-8 space-y-5">
 		<h1 class="h1">GitHub stats visualization</h1>
-		<p>Here's my GitHub stats:</p>
+		<p>Here's my GitHub stats generated from my public repositories:</p>
 		<table>
 			<tbody>
 			  <tr class="collapse dark:visible">
