@@ -13,7 +13,11 @@
 	import Linkedin from 'svelte-material-icons/Linkedin.svelte';
 	import Instagram from 'svelte-material-icons/Instagram.svelte';
 	import Post from 'svelte-material-icons/Post.svelte';
-	
+	import hljs from 'highlight.js';
+	import 'highlight.js/styles/github-dark.css';
+	import { storeHighlightJs } from '@skeletonlabs/skeleton';
+
+	storeHighlightJs.set(hljs);
 	let size = '1.5rem';
 	let viewBox = '0 0 24 24';
 	let innerWidth = 0;
