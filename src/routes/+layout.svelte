@@ -16,6 +16,9 @@
 	import hljs from 'highlight.js';
 	import 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs } from '@skeletonlabs/skeleton';
+	import { fade } from 'svelte/transition'
+
+	export let data
 
 	storeHighlightJs.set(hljs);
 	let size = '1.5rem';
@@ -126,8 +129,12 @@
 		</AppRail>
 		{/if}
 	</svelte:fragment>
-	<div class="container" style={`${innerWidth > 640 ? "padding-left: 88px;" : ""}`}>
-		<slot />
-	</div>
+	{#key data.currentRoute}
+	<main in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
+		<div class="container" style={`${innerWidth > 640 ? "padding-left: 88px;" : ""}`}>
+			<slot />
+		</div>
+	</main>
+	{/key}
 	<svelte:fragment slot="pageFooter"></svelte:fragment>
 </AppShell>

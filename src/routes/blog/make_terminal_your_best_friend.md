@@ -6,6 +6,8 @@ date: "2023-07-17"
     import { CodeBlock } from '@skeletonlabs/skeleton';
 </script>
 
+<img src="https://i.ibb.co/SJfM2BZ/img-20230718-211010.png" alt="oh-my-posh" />
+
 As a programmer, you spend a significant amount of time in the terminal. So why not make it an amazing and visually appealing experience? In this blog post, I'll guide you through the process of setting up Windows Terminal with Oh My Posh to transform your command line interface into a powerful and customizable tool.
 
 ### What is Windows Terminal and Oh My Posh?
