@@ -82,7 +82,7 @@
 	<svelte:fragment slot="sidebarLeft">
 		{#if innerWidth > 640}
 		<AppRail class="fixed z-10">
-			<AppRailAnchor href="/" target="_self" title="Instagram">
+			<AppRailAnchor href="/" target="_self" title="Home">
 				<svelte:fragment slot="lead">
 					<span><Home {size} {viewBox} /></span>
 				</svelte:fragment>
