@@ -14,7 +14,7 @@
 	<ul class="list">
 		{#each data.posts as post}
 			<li>
-				<span><a class="anchor" href={post.path}>{post.meta.title}</a></span><span class="badge variant-filled-primary">Published {post.meta.date}</span>
+				<span><a class="anchor h3" href={post.path}>{post.meta.title}</a><br><p>Published {post.meta.date}</p></span>
 			</li>
 		{/each}
 	</ul>
