@@ -91,7 +91,7 @@
 				</svelte:fragment>
 				<span>Home</span>
 			</AppRailAnchor>
-			<AppRailAnchor href="/blog" target="_self" title="Instagram">
+			<AppRailAnchor href="/blog" target="_self" title="Blog">
 				<svelte:fragment slot="lead">
 					<span><Post {size} {viewBox} /></span>
 				</svelte:fragment>
